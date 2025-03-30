@@ -21,10 +21,10 @@ def monitor() -> bool:
     global HEARTBEAT
     try:
         QbitManager(
-            host=config.QBIT_HOST,
-            port=config.QBIT_PORT,
-            username=config.QBIT_USERNAME,
-            password=config.QBIT_PASSWORD,
+            host=config.TORRENT_CLIENT_HOST,
+            port=config.TORRENT_CLIENT_PORT,
+            username=config.TORRENT_CLIENT_USERNAME,
+            password=config.TORRENT_CLIENT_PASSWORD,
         )
     except Exception:
         logging.error("Something wrong with Qbit, it's not accessible")

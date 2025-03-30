@@ -21,14 +21,16 @@ logger = logging.getLogger("main")
 
 @catch_exceptions(cancel_on_failure=False)
 def main() -> None:
-    """Main function responsible for setting up ws and qbit.
+    """Main function responsible for setting up ws and torrent client.
 
     Steps:
     - check if the heartbeat was okay
     - login to ws
     - setup new matching ports
-    - setup qbit
+    - setup torrent client
     """
+    
+    
     if not HEARTBEAT:
         msg = (
             "From heartbeat check, "
@@ -52,10 +54,10 @@ def main() -> None:
 
     try:
         qbit = QbitManager(
-            host=config.QBIT_HOST,
-            port=config.QBIT_PORT,
-            username=config.QBIT_USERNAME,
-            password=config.QBIT_PASSWORD,
+            host=config.TORRENT_CLIENT_HOST,
+            port=config.TORRENT_CLIENT_PORT,
+            username=config.TORRENT_CLIENT_USERNAME,
+            password=config.TORRENT_CLIENT_PASSWORD,
         )
     except Exception:
         logger.error("not able to work with qbit")

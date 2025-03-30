@@ -47,17 +47,17 @@ PASSWORD_ID: str = "password"
 
 
 # fmt: off
-# some qbit config
-QBIT_USERNAME: str = os.getenv("QBIT_USERNAME", "default123!!")
-QBIT_PASSWORD: str = os.getenv("QBIT_PASSWORD", "default123!!")
-QBIT_HOST: str     = os.getenv("QBIT_HOST", "127.0.0.1")
-QBIT_PORT: int     = int(os.getenv("QBIT_PORT", "8080"))
+# some torrent client config
+TORRENT_CLIENT_USERNAME: str = os.getenv("TORRENT_CLIENT_USERNAME", "default123!!")
+TORRENT_CLIENT_PASSWORD: str = os.getenv("TORRENT_CLIENT_PASSWORD", "default123!!")
+TORRENT_CLIENT_HOST: str     = os.getenv("TORRENT_CLIENT_HOST", "127.0.0.1")
+TORRENT_CLIENT_PORT: int     = int(os.getenv("TORRENT_CLIENT_PORT", "8080"))
 # fmt: on
 
 qbit_found = True
 # if user is running latest build without qbit env then let them run but disable the
 # qbit functions
-if QBIT_USERNAME == "default123!!" or QBIT_PASSWORD == "default123!!":
+if TORRENT_CLIENT_USERNAME == "default123!!" or TORRENT_CLIENT_PASSWORD == "default123!!":
     print("QBIT related setup not found, setup env as soon as possible")
     qbit_found = False
 
