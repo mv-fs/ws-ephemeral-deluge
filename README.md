@@ -1,15 +1,12 @@
 # WS-EPHEMERAL
 
-This project aims to automate setting up ephemeral port on Windscribe VPN
-service for the purpose of port forwarding. Once the setup is done it wait
-patiently for next seven days. It delete the ephemeral port setting if any and
-set the new one. Useful for some torrent application which are running behind
-Windscribe VPN and need to open the ports.
+This repo is a fork of [ws-ephemeral](dhruvinsh/ws-ephemeral) with the goal of making it usable as a scheduled task for desktop and also change the qBittorrent integration to Deluge.
+Another change is that this verison will not delete the existing port but only grab it. This way you can use this script as a scheduled task while having the original reseting the ports independently on your server.
 
 ## Docker Setup
 
 > [!important]
-> NOTE: V1 is deprecated and should not be used.
+> DOCKER is not being supported actively in this repo, all the code is from the original repo and should not be expected to work.
 
 ### Registries
 
@@ -70,7 +67,7 @@ docker compose up -d
 | WS_COOKIE_PATH       | Persistent location for the cookie. (v3.x.x only)                                |
 | QBIT_USERNAME        | QBIT username                                                                    |
 | QBIT_PASSWORD        | QBIT password                                                                    |
-| QBIT_HOST            | QBIT web address like, https://qbit.xyz.com or http://192.168.1.10               |
+| QBIT_HOST            | QBIT web address like, <https://qbit.xyz.com> or <http://192.168.1.10>               |
 | QBIT_PORT            | QBIT web port number like, 443 or 8080                                           |
 | QBIT_PRIVATE_TRACKER | get QBIT ready for private tracker by disabling dht, pex and lsd (true or false) |
 | ONESHOT              | Run and setup the code only one time so that job can be schedule externally      |
